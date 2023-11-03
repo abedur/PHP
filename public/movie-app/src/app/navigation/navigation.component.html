@@ -1,0 +1,19 @@
+<div class="container-fluid navigation">
+    <nav>
+        <div>
+            <div>
+                <button class="btn btn-success" routerLink="/">Home</button>
+                <button class="btn btn-success" routerLink="/movies">Movies</button>
+                <button *ngIf="isLoggedIn" class="btn btn-success" routerLink="/create">Create</button>
+                <button *ngIf="!isLoggedIn" class="btn btn-success" routerLink="/register">Register</button>
+                <button *ngIf="isLoggedIn" class="btn btn-success" routerLink="/profile">Profile</button>
+                <button *ngIf="!isLoggedIn" class="btn btn-success" routerLink="/login">Login</button>
+                <button *ngIf="isLoggedIn" class="btn btn-success" (click)="onLogout()">Logout</button>
+            </div>
+            <!-- <div>
+                Username: <input type="text"> Password: <input type="password">
+            </div> -->
+        </div>
+    </nav>
+
+</div>

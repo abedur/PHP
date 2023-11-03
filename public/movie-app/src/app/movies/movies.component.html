@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Movies List</h2>
+
+    <!-- <ul>
+        <li *ngFor="let movie of movies" style="height:50px">
+            <a routerLink="/movie/{{movie._id}}">
+                {{movie.title}}
+            </a>
+            <button (click)="onMovieDeleteClick(movie._id)" class="btn btn-danger" style="float: right;">Delete</button>
+        </li>
+    </ul> -->
+    <!-- <form [formGroup]="searchForm" (ngSubmit)="onSubmit()"> -->
+    <form [formGroup]="searchForm">
+        <div class="row">
+            <div class="col-md-3 col-xs-12">Search:</div>
+            <div class="col-md-6 col-xs-12">
+                <input type="text" formControlName="title" [ngModel]="searchString"
+                    (ngModelChange)="searchMovie($event)" (keyup)="onKeyDown($event)" id="title" name="title"
+                    class="form-control border" placeholder="Search your movie" />
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <!-- <button class="btn btn-success">SEARCH</button> -->
+            </div>
+        </div>
+    </form>
+    <table class="table  textColor">
+        <thead>
+            <tr>
+                <th width="70%">Movie Name</th>
+                <th width="15%">Year</th>
+                <th width="15%" text-align="right">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies">
+                <td><a routerLink="/movie/{{movie._id}}">
+                        {{movie.title}}
+                    </a></td>
+                <td> {{movie.year}}</td>
+                <td><button (click)="onMovieDeleteClick(movie._id)" class="btn btn-danger" style="float: right;"
+                        *ngIf="isLoggedIn">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button (click)="previous()" [disabled]="isOffsetZero" class="btn btn-success">Previous</button>
+    <button (click)="next()" [disabled]="isOffsetMax" class="btn btn-success">Next</button>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <span style="color: green;">{{message}}</span>
+    <span style="color: red;">{{errorMessage}}</span>
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <h2>Title:</h2>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <h2>{{movie.title}} - <app-stars-rating [rating]="movie.rating"></app-stars-rating> </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-3">Year:</div>
+        <div class="col-xs-12 col-md-9">{{movie.year}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-3">Casts:</div>
+        <div class="col-xs-12 col-md-9" *ngIf="actors">
+            <li *ngFor="let actor of actors" style="height:30px">
+                <a routerLink="actor/{{actor._id}}">{{actor.actor}}</a> <a style="float: right;"
+                    (click)="deleteActor(actor._id)" *ngIf="isLoggedIn">Delete</a>
+            </li>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <button class="btn btn-success" (click)="doMovieEdit(movie._id)" *ngIf="isLoggedIn">EDIT</button>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <button class="btn btn-success" (click)="addActor(movie._id)" *ngIf="isLoggedIn">Add Actor</button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,47 @@
+<div class="container">
+    <form #registerForm="ngForm" (ngSubmit)="submitForm(registerForm)">
+        <span style="color: red;">{{errorMessage}}</span>
+        <div class="row rowPadding">
+            <div class="col-xs-12 col-md-3">
+                <h2>Register User:</h2>
+            </div>
+            <div class="col-xs-12 col-md-9">
+            </div>
+        </div>
+        <div class="row rowPadding">
+            <div class="col-xs-12 col-md-3">Name:</div>
+            <div class="col-xs-12 col-md-9">
+                <input type="text" name="name" placeholder="Name" [(ngModel)]="user.name" class="form-control border" />
+            </div>
+        </div>
+        <div class="row rowPadding">
+            <div class="col-xs-12 col-md-3">Username:</div>
+            <div class="col-xs-12 col-md-9">
+                <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="user.username"
+                    class="form-control border" />
+            </div>
+
+
+        </div>
+        <div class="row rowPadding">
+            <div class="col-xs-12 col-md-3">Password:</div>
+            <div class="col-xs-12 col-md-9">
+                <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password"
+                    class="form-control border" />
+            </div>
+        </div>
+        <div class="row rowPadding">
+            <div class="col-xs-12 col-md-3">Reapit Password:</div>
+            <div class="col-xs-12 col-md-9">
+                <input type="password" name="rpassword" placeholder="Reapit Password" class="form-control border" />
+            </div>
+        </div>
+        <div class="row rowPadding">
+            <div class="col-xs-12 col-md-3"></div>
+            <div class="col-xs-12 col-md-9">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+        </div>
+    </form>
+
+</div>
